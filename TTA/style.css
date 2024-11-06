@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a3c1e0, #f0f4fd);
+  position: relative;
+}
+
+.wrap {
+  width: 500px; /* Increased width */
+  border-radius: 7px;
+  padding: 30px 35px; /* Increased padding */
+  background: rgba(255, 255, 255, 0.9); /* Light background with transparency */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* More prominent box shadow */
+  position: relative;
+  z-index: 1;
+}
+
+.wrap::before {
+  content: "🎤"; /* Add microphone symbol */
+  position: absolute;
+  top: -30px; /* Adjust position */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px; /* Adjust size */
+}
+
+.wrap header {
+  font-size: 32px; /* Increased font size */
+  text-align: center;
+  font-weight: 600;
+  color: #2980b9;
+  margin-bottom: 25px; /* Increased margin */
+}
+
+.wrap form {
+  margin: 0;
+}
+
+form .row {
+  display: flex;
+  margin-bottom: 25px; /* Increased margin */
+  flex-direction: column;
+}
+
+form .row label {
+  font-size: 20px; /* Increased font size */
+  margin-bottom: 5px;
+  color: #2980b9;
+}
+
+form :where(textarea, button, input[type="file"]) {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+}
+
+form .row textarea {
+  resize: none;
+  height: 150px; /* Increased height */
+  font-size: 18px; /* Increased font size */
+  padding: 10px 12px;
+  border: 1px solid #2980b9; /* Blue border */
+}
+
+form button {
+  height: 56px; /* Increased height */
+  margin-top: 15px; /* Increased margin */
+  color: #fff;
+  font-size: 18px; /* Increased font size */
+  cursor: pointer;
+  background: #2980b9; /* Button color */
+  border: none;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #3498db; /* Button hover color */
+}
+
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  color: #2980b9;
+  font-size: 16px;
+}
