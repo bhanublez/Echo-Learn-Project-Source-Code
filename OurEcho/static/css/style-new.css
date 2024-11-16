@@ -116,3 +116,215 @@ main {
   font-size: 32px;
   color: #fff;
 }
+
+/* Body and General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+header {
+  background-color: #007bff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+#main_title {
+  font-size: 2.5em;
+  color: #007bff;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Body and General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+header {
+  background-color: #007bff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 150px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+#main_title {
+  font-size: 2.5em;
+  color: #007bff;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Core Logic Display Row */
+.row {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accuracy-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.container-small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ipa-text-small {
+  font-size: 1em;
+  color: #007bff;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100px;
+}
+
+.icon {
+  font-size: 2em;
+  color: #007bff;
+  cursor: pointer;
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #f0f2f5;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  text-align: center;
+}
+
+.mic-button {
+  align-self: center;
+  font-size: 2.5em;
+  color: #007bff;
+  cursor: pointer;
+}
+
+/* Button */
+.btn {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#radio-difficulty {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+.radio label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px; /* Adjust padding as needed */
+}
+
+.mic-button {
+  font-size: 24px; /* Adjust size as needed */
+}
+
+.btn {
+  margin-left: auto;
+}
+
+.button-89 {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.logo {
+  width: 50px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}

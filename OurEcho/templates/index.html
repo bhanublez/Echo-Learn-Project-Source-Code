@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Echo Learn</title>
 
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="../static/css/style-new.css" />
     <link
       rel="stylesheet"
@@ -20,94 +21,113 @@
   </head>
   <body>
     <!-- Header Section -->
-    <header>
-      <nav id="nav">
-        <img src="logo.jpg" alt="Echo Learn Logo" class="logo" />
+    <header class="header">
+      <img src="../static/images/logo.jpg" alt="Echo Learn Logo" class="logo" />
+      <nav>
         <ul class="nav-links">
-          <li><a href="#">Home</a></li>
+          <li><a href="\">Home</a></li>
+          <li><a href="chat">Chat AI</a></li>
           <li><a href="#">About Us</a></li>
           <li><a href="#">Contact Us</a></li>
           <li><a href="#">Pricing</a></li>
         </ul>
       </nav>
     </header>
-    <div style="display:flex; flex-direction: row;">
-            <h1 id='main_title'> Learn with Echo and Speak Like a Pro
-            </h1>
-    </div>
 
+    <!-- Main Title -->
+    <h1 id="main_title" class="text-center">
+      Learn with Echo and Speak Like a Pro
+    </h1>
 
-    <!-- Main Section -->
-    <main>
-    <div style="display:flex; flex-direction: row;">
-        <p id="section_accuracy" class="accuracy-text"
-                    style="text-align: left; color: black; font-size: larger;">
-                    Score: 0
+    <!-- Main Container -->
+    <main class="main-container">
+      <!-- Core Logic Row -->
+      <section class="core-logic row align-items-center text-center">
+        <p id="section_accuracy" class="accuracy-text col-12">Score: 0</p>
+        <div class="col-12">
+          <p id="single_word_ipa_pair" class="ipa-text-small">
+            Reference | Spoken
           </p>
-          <div class="container-small flex expand"
-            style="align-items: center; text-align: center; vertical-align:middle; ">
-            <p id="single_word_ipa_pair" class="expand ipa-text-small"
-                style="text-align: center; vertical-align: middle;"> |  Reference | Spoken
-            </p>
         </div>
-      </div>
-      
-      
-      <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-          <p
-            id="pronunciation_accuracy"
-            class="expanded accuracy-text"
-            style="
-              text-align: center;
-              color: black;
-              position: absolute;
-              top: 27%;
-            "></p>
-        </div>
+      </section>
 
-        <div class="sidebar">
+      <!-- Flex Container for Sidebar and Content -->
+      <div class="flex-container d-flex">
+        <!-- Sidebar -->
+        <aside class="sidebar p-3">
+          <p id="pronunciation_accuracy" class="accuracy-text">
+            Accuracy
+          </p>
           <div class="icon chatbot-icon">
             <i class="fa-solid fa-robot"></i>
           </div>
           <div class="icon user-icon">
             <i class="fa-solid fa-volume-high"></i>
           </div>
-        </div>
+        </aside>
 
         <!-- Content Area -->
-        <div class="content">
-          <div class="text-box" id="box1">
-            <p id="original_script">
-              original_script comes here tik hai na
+        <section class="content flex-grow-1 p-4">
+          <div class="text-box mb-3" id="box1">
+            <p id="original_script">Original script comes here tik hai na</p>
+            <p id="ipa_script">IPA script comes here tik hai na</p>
+          </div>
+          <div class="text-box mb-3" id="box2">
+            <p id="recorded_ipa_script">Recorded IPA script comes here</p>
+            <p id="translated_script">
+              Translated script comes here, for future perspective
             </p>
-            <p id="ipa_script" >
-              ipa_script comes here tik hai na
-            </p>
           </div>
-          <div class="text-box" id="box2">
-            <p id="recorded_ipa_script" >recorded_ipa_script comes here</p>
-            <p id="translated_script">translated_script come here, for future perpective</p>
+          <div class="button-container">
+            <div class="mic-button">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <div class="btn">
+              <button class="button-89" id="generate_sample">Generate</button>
+            </div>
           </div>
-          <div class="mic-button">
-            <i class="fa-solid fa-microphone"></i>
-          </div>
-          <div class="btn" style="display:flex; flex-direction: row;">
-        <button class = "button-89" id="generate_sample">Generate</button> 
-          </div>
-               
-        </div>
-         <div id="radio-difficulty" class="radio" style="position: fixed; top: 95%; left: 2%;">
-            <input label="Random" type="radio" id="lengthCat1" name='length' onclick="javascript:getNextSample()">
-            <input label="Easy" type="radio" id="lengthCat2" name='length' checked onclick="javascript:getNextSample()">
-            <input label="Medium" type="radio" id="lengthCat3" name='length' onclick="javascript:getNextSample()">
-            <input label="Hard" type="radio" id="lengthCat4" name='length' onclick="javascript:getNextSample()">
-        </div>
-        
+        </section>
+      </div>
+    </main>
 
-    <!-- JS for any dynamic behavior -->
+    <!-- Difficulty Level Radio Section -->
+    <div id="radio-difficulty" class="radio text-center my-4">
+      <label
+        ><input
+          type="radio"
+          name="length"
+          id="lengthCat1"
+          onclick="getNextSample()" />
+        Random</label
+      >
+      <label
+        ><input
+          type="radio"
+          name="length"
+          id="lengthCat2"
+          checked
+          onclick="getNextSample()" />
+        Easy</label
+      >
+      <label
+        ><input
+          type="radio"
+          name="length"
+          id="lengthCat3"
+          onclick="getNextSample()" />
+        Medium</label
+      >
+      <label
+        ><input
+          type="radio"
+          name="length"
+          id="lengthCat4"
+          onclick="getNextSample()" />
+        Hard</label
+      >
+    </div>
 
+    <!-- JavaScript -->
     <script src="../static/javascript/callbacks.js"></script>
   </body>
 </html>

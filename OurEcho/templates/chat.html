@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echo Learn</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="../static/css/style-new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous" />
+    <style>
+      /* Custom Styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+      }
+
+      header {
+        background-color: #007bff;
+        padding: 10px 0;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        margin-right: 15px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .nav-links a:hover {
+        text-decoration: underline;
+      }
+
+      #main_title {
+        font-size: 2.5em;
+        color: #007bff;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      /* Chat Section Styles */
+      .chat-section {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        max-width: 900px;
+        margin: 30px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .chat-box {
+        flex: 1;
+        max-width: 400px;
+        margin: 0 10px;
+        background-color: #f1f1f1;
+        border-radius: 10px;
+        padding: 10px;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+
+      .chat-box-header {
+        font-weight: bold;
+        text-align: center;
+        padding: 5px 0;
+        background-color: #007bff;
+        color: white;
+        border-radius: 10px 10px 0 0;
+        margin-bottom: 10px;
+      }
+
+      .chat-message {
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: white;
+        border-radius: 8px;
+      }
+
+      .mic-icon {
+        font-size: 2em;
+        color: #007bff;
+        cursor: pointer;
+      }
+
+      /* Input Styles */
+      .chat-input-section {
+        display: flex;
+        margin-top: 10px;
+      }
+
+      #chat-input {
+        flex: 1;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      #send-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+      }
+
+      #send-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header class="header">
+      <img src="../static/images/logo.jpg" alt="Echo Learn Logo" class="logo" />
+      <nav>
+        <ul class="nav-links">
+          <li><a href="\">Home</a></li>
+          <li><a href="chat">Chat AI</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Title Section -->
+    <div class="text-center my-4">
+      <h1 id="main_title">Learn with Echo and Speak Like a Pro</h1>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="chat-section">
+      <!-- Person 1 Chat Box (Computer) -->
+      <div class="chat-box">
+        <div class="chat-box-header">Computer</div>
+        <div class="chat-message-1">
+          <p>Hello! I am computer AI.</p>
+        </div>
+      </div>
+
+      <!-- Microphone Icon in the Middle -->
+      <div class="mic-icon text-center">
+        <i class="fas fa-microphone" onclick="fetchNextChat()"></i>
+      </div>
+
+      <!-- Person 2 Chat Box (User) -->
+      <div class="chat-box">
+        <div class="chat-box-header">You</div>
+        <div class="chat-message-2">
+          <p>Read the content and score 60 or above to move to next.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      let currentChatIndex = 1;
+      let apiMainPathSTS = "http://127.0.0.1:3000";
+      let boy1Chat = "Ball";
+      let boy2Chat = "Bat";
+      let temp = 1;
+      // Function to fetch chat data from the server
+      async function fetchNextChat() {
+        if (temp == 1) {
+          document.querySelector(".chat-message-1 p").innerText = "";
+          document.querySelector(".chat-message-2 p").innerText = "";
+          temp = 0;
+        }
+        try {
+          const response = await fetch(apiMainPathSTS + "/get_chat", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ index: currentChatIndex }),
+          });
+
+          const data = await response.json();
+          console.log(data);
+
+          if (response.ok) {
+            const boy1Chat = data.boy1;
+            const boy2Chat = data.boy2;
+
+            // Create new div containers for each chat message
+            const boy1ChatDiv = document.createElement("div");
+            boy1ChatDiv.classList.add("chat-box");
+            boy1ChatDiv.innerHTML = `
+        <div class="chat-message-1">
+          <p>${boy1Chat}</p>
+        </div>
+      `;
+
+            const boy2ChatDiv = document.createElement("div");
+            boy2ChatDiv.classList.add("chat-box");
+            boy2ChatDiv.innerHTML = `
+        <div class="chat-message-2">
+          <p>${boy2Chat}</p>
+        </div>
+      `;
+
+            // Append the new chat messages to the chat section
+            const chat1 = document.querySelector(".chat-message-1");
+
+            const chat2 = document.querySelector(".chat-message-2");
+            chat1.appendChild(boy1ChatDiv);
+            chat2.appendChild(boy2ChatDiv);
+
+            currentChatIndex++; // Increment the index for the next chat
+          } else {
+            console.error("Error fetching chat data:", data.error);
+          }
+        } catch (error) {
+          console.error("Error fetching chat data:", error);
+        }
+      }
+    </script>
+    <script src="../static/javascript/callbacks.js"></script>
+  </body>
+</html>
